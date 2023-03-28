@@ -6,8 +6,7 @@
  */
 import { expose } from 'comlink';
 
-import { JavaScriptRemoteKernel } from './worker';
+import { getRemoteKernel } from './worker.js';
 
-const worker = new JavaScriptRemoteKernel();
-
+self.onconnect = ({ports:[port]}) => expose(new getRemoteKernel(port.postMessage.bind(port))(), port);
 expose(worker);
