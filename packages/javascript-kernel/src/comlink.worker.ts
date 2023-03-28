@@ -8,4 +8,4 @@ import { expose } from 'comlink';
 
 import { getRemoteKernel } from './worker.js';
 
-self.onconnect = ({ports:[port]}) => expose(new getRemoteKernel(port.postMessage.bind(port))(), port);
+self.onconnect = ({ports:[port]})=>expose(new(getRemoteKernel(port.postMessage.bind(port)))(),port);
