@@ -1,6 +1,7 @@
 import { IJavaScriptWorkerKernel } from './tokens';
 
-export class JavaScriptRemoteKernel {
+
+export const getRemoteKernel = (postMessage)=>class JavaScriptRemoteKernel {
   /**
    * Initialize the remote kernel.
    *
