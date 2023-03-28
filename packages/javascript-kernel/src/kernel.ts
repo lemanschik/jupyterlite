@@ -185,7 +185,7 @@ export class JavaScriptKernel extends BaseKernel implements IKernel {
    * webpack to find it.
    */
   protected initWorker(options: JavaScriptKernel.IOptions): Worker {
-    return new Worker(new URL('./comlink.worker.js', import.meta.url), {
+    return new SharedWorker(new URL('./comlink.worker.js', import.meta.url), {
       type: 'module',
     });
   }
